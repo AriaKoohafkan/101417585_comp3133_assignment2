@@ -1,0 +1,25 @@
+.dashboard-container {
+    padding: 20px;
+  }
+  
+  button {
+    padding: 8px 12px;
+    margin: 10px;
+    cursor: pointer;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 12px;
+    border: 1px solid #ccc;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f4f4f4;
+  }
+  
