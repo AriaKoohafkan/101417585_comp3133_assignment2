@@ -1,0 +1,622 @@
+{
+	"info": {
+		"_postman_id": "3a2bc0f0-e1e0-45bf-aa72-665519575f09",
+		"name": "COMP3133_StudentID_Assignment1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41988268",
+		"_collection_link": "https://new444-1559.postman.co/workspace/16521dc9-82d3-462b-a565-e7c0ffde87a4/collection/41988268-3a2bc0f0-e1e0-45bf-aa72-665519575f09?action=share&source=collection_link&creator=41988268"
+	},
+	"item": [
+		{
+			"name": "graphql api tests",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2FlMjQzMDI5YWQ1ZDRhZTExMzk4M2EiLCJpYXQiOjE3Mzk1MTY5NjYsImV4cCI6MTczOTUyMDU2Nn0.GEUY1pa2bc_0xEUoKN_gHKEZf_RcmFB9UJDISj23jn0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"query\": \"mutation { signup(first_name: \\\"joy\\\", last_name: \\\"row\\\", username: \\\"joyrow\\\", email: \\\"joy@example.com\\\", password: \\\"123456\\\") { id first_name last_name username email } }\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "sign up request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2FlMjQzMDI5YWQ1ZDRhZTExMzk4M2EiLCJpYXQiOjE3Mzk1MTY5NjYsImV4cCI6MTczOTUyMDU2Nn0.GEUY1pa2bc_0xEUoKN_gHKEZf_RcmFB9UJDISj23jn0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"query\": \"mutation { signup(first_name: \\\"joy\\\", last_name: \\\"row\\\", username: \\\"joyrow\\\", email: \\\"joy@example.com\\\", password: \\\"123456\\\") { id first_name last_name username email } }\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "137"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"89-3UQmmF0RlIDRBj2K9YAt8wVhV3E\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 14 Feb 2025 07:32:59 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"signup\": {\n            \"id\": \"67aef1aadddeaa162be0d680\",\n            \"first_name\": \"joy\",\n            \"last_name\": \"row\",\n            \"username\": \"joyrow\",\n            \"email\": \"joy@example.com\"\n        }\n    }\n}"
+				},
+				{
+					"name": "sign in request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2FlMjQzMDI5YWQ1ZDRhZTExMzk4M2EiLCJpYXQiOjE3Mzk1MTY5NjYsImV4cCI6MTczOTUyMDU2Nn0.GEUY1pa2bc_0xEUoKN_gHKEZf_RcmFB9UJDISj23jn0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"query\": \"query { login(usernameOrEmail: \\\"joy@example.com\\\", password: \\\"123456\\\") }\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "198"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"c6-VlV9lpE5ofIrGscYXQu2jqqgDxY\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 14 Feb 2025 07:35:13 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"login\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2FlZjFhYWRkZGVhYTE2MmJlMGQ2ODAiLCJpYXQiOjE3Mzk1MTg1MTMsImV4cCI6MTczOTUyMjExM30.xPwV4Uhf3DuTIgT2bAAFbjQU6N5bso4NTJjHvhLGkf0\"\n    }\n}"
+				},
+				{
+					"name": "Get All Employees request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2FlMjQzMDI5YWQ1ZDRhZTExMzk4M2EiLCJpYXQiOjE3Mzk1MTY5NjYsImV4cCI6MTczOTUyMDU2Nn0.GEUY1pa2bc_0xEUoKN_gHKEZf_RcmFB9UJDISj23jn0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"query\": \"query { getAllEmployees { id first_name last_name email designation salary department } }\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "370"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"172-FfPGrSNcBbc8ZUaXviwkTpK5ESk\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 14 Feb 2025 07:36:54 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"getAllEmployees\": [\n            {\n                \"id\": \"67ac932577436dc23e950a68\",\n                \"first_name\": \"Jane\",\n                \"last_name\": \"Smith\",\n                \"email\": \"jane@example.com\",\n                \"designation\": \"Software Engineer\",\n                \"salary\": 75000,\n                \"department\": \"IT\"\n            },\n            {\n                \"id\": \"67ae26b229ad5d4ae1139840\",\n                \"first_name\": \"vin\",\n                \"last_name\": \"diego\",\n                \"email\": \"diego@gmail.com\",\n                \"designation\": \"Senior Devops Engineer\",\n                \"salary\": 85000,\n                \"department\": \"IT\"\n            }\n        ]\n    }\n}"
+				},
+				{
+					"name": "Add Employee request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2FlMjQzMDI5YWQ1ZDRhZTExMzk4M2EiLCJpYXQiOjE3Mzk1MTY5NjYsImV4cCI6MTczOTUyMDU2Nn0.GEUY1pa2bc_0xEUoKN_gHKEZf_RcmFB9UJDISj23jn0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"query\": \"mutation { addEmployee(input: { first_name: \\\"Joy\\\", last_name: \\\"row\\\", email: \\\"joy@gmail.com.com\\\", gender: \\\"Female\\\", designation: \\\"Accountant\\\", salary: 75000, date_of_joining: \\\"2025-02-01\\\", department: \\\"Finance\\\", employee_photo: \\\"http://example.com/photo.jpg\\\" }) { id first_name last_name designation salary } }\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "138"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"8a-IwaU90bKk+q2kfMjqIagC8Im040\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 14 Feb 2025 07:40:43 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"addEmployee\": {\n            \"id\": \"67aef37bdddeaa162be0d684\",\n            \"first_name\": \"Joy\",\n            \"last_name\": \"row\",\n            \"designation\": \"Accountant\",\n            \"salary\": 75000\n        }\n    }\n}"
+				},
+				{
+					"name": "update employee request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2FlZjFhYWRkZGVhYTE2MmJlMGQ2ODAiLCJpYXQiOjE3Mzk1MzU4MjQsImV4cCI6MTczOTUzOTQyNH0.avqdrrBk-614kTzGD_4RdVA7oixJTX0X7PDOuXfRWF0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"query\": \"mutation { updateEmployee(eid: \\\"67aef37bdddeaa162be0d684\\\", input: { first_name: \\\"Joy\\\", last_name: \\\"Row\\\", email: \\\"joy.row@example.com\\\", gender: \\\"Female\\\", designation: \\\"Senior Accountant\\\", salary: 10000, date_of_joining: \\\"2025-06-01\\\", department: \\\"IT\\\", employee_photo: \\\"http://example.com/photo.jpg\\\" }) { id first_name last_name email gender designation salary date_of_joining department employee_photo } }\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "296"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"128-jnIZSZ72tnhZEIEBwUGI0cgE7IM\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 14 Feb 2025 12:25:08 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"updateEmployee\": {\n            \"id\": \"67aef37bdddeaa162be0d684\",\n            \"first_name\": \"Joy\",\n            \"last_name\": \"Row\",\n            \"email\": \"joy.row@example.com\",\n            \"gender\": \"Female\",\n            \"designation\": \"Senior Accountant\",\n            \"salary\": 10000,\n            \"date_of_joining\": \"1748736000000\",\n            \"department\": \"IT\",\n            \"employee_photo\": \"http://example.com/photo.jpg\"\n        }\n    }\n}"
+				},
+				{
+					"name": "delete employee request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2FlZjFhYWRkZGVhYTE2MmJlMGQ2ODAiLCJpYXQiOjE3Mzk1MzU4MjQsImV4cCI6MTczOTUzOTQyNH0.avqdrrBk-614kTzGD_4RdVA7oixJTX0X7PDOuXfRWF0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"query\": \"mutation { deleteEmployee(eid: \\\"67ac932577436dc23e950a68\\\") }\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "33"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"21-gq2u6dpz3nqzB8l6LulTLLTnkg4\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 14 Feb 2025 12:30:01 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"deleteEmployee\": true\n    }\n}"
+				},
+				{
+					"name": "searchbyDesignation request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2FlZjFhYWRkZGVhYTE2MmJlMGQ2ODAiLCJpYXQiOjE3Mzk1MzU4MjQsImV4cCI6MTczOTUzOTQyNH0.avqdrrBk-614kTzGD_4RdVA7oixJTX0X7PDOuXfRWF0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"query\": \"query { searchEmployeeByDesignationOrDepartment(searchTerm: \\\"IT\\\") { id first_name last_name department } }\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "235"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"eb-eJP2Yhr4bVQI9VcKsMbj8fQpU7Q\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 14 Feb 2025 12:32:24 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"searchEmployeeByDesignationOrDepartment\": [\n            {\n                \"id\": \"67ae26b229ad5d4ae1139840\",\n                \"first_name\": \"vin\",\n                \"last_name\": \"diego\",\n                \"department\": \"IT\"\n            },\n            {\n                \"id\": \"67aef37bdddeaa162be0d684\",\n                \"first_name\": \"Joy\",\n                \"last_name\": \"Row\",\n                \"department\": \"IT\"\n            }\n        ]\n    }\n}"
+				},
+				{
+					"name": "search employee by id",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2FlZjFhYWRkZGVhYTE2MmJlMGQ2ODAiLCJpYXQiOjE3Mzk1MzU4MjQsImV4cCI6MTczOTUzOTQyNH0.avqdrrBk-614kTzGD_4RdVA7oixJTX0X7PDOuXfRWF0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"query\": \"query { searchEmployeeByEid(eid: \\\"67ae26b229ad5d4ae1139840\\\") { id last_name salary } }\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "102"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"66-5lvs3RprXwO8aN/DbY9ijESm3iQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 14 Feb 2025 13:11:07 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"searchEmployeeByEid\": {\n            \"id\": \"67ae26b229ad5d4ae1139840\",\n            \"last_name\": \"diego\",\n            \"salary\": 85000\n        }\n    }\n}"
+				}
+			]
+		}
+	]
+}
