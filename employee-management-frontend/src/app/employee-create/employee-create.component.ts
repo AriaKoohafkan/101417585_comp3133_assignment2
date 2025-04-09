@@ -4,6 +4,8 @@ import { Apollo } from 'apollo-angular';
 import { gql } from 'apollo-angular';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';  // Import HttpClient for REST API calls
+import { environment } from 'src/environments/environment'; // Make sure you have the API base URL set in environment.ts
 
 @Component({
   selector: 'app-employee-create',
@@ -36,10 +38,10 @@ import { CommonModule } from '@angular/common';
       <label>Department:</label>
       <input formControlName="department" type="text" />
 
-      <label>Employee Photo (URL):</label>
-      <input formControlName="employee_photo" type="text" />
+      <label>Employee Photo:</label>
+      <input type="file" (change)="onFileChange($event)" />
 
-      <button type="submit" [disabled]="createEmployeeForm.invalid">Create Employee</button>
+      <button type="submit" [disabled]="createEmployeeForm.invalid || isUploading">Create Employee</button>
     </form>
   `,
   styles: [`
@@ -63,11 +65,14 @@ import { CommonModule } from '@angular/common';
 })
 export class EmployeeCreateComponent {
   createEmployeeForm: FormGroup;
+  employeePhotoPath: string | null = null;  // To hold the file path from REST upload
+  isUploading = false;
 
   constructor(
     private fb: FormBuilder,
     private apollo: Apollo,
-    private router: Router
+    private router: Router,
+    private http: HttpClient  // Inject HttpClient to make the REST API call
   ) {
     this.createEmployeeForm = this.fb.group({
       first_name: ['', Validators.required],
@@ -82,15 +87,40 @@ export class EmployeeCreateComponent {
     });
   }
 
+  // Handle file selection and upload the photo
+  onFileChange(event: any): void {
+    const file = event.target.files[0];
+    if (file) {
+      this.isUploading = true;
+      const formData = new FormData();
+      formData.append('profilePicture', file);
+
+      // Make REST API call to upload the photo
+      this.http.post<{ path: string }>(`${environment.apiBaseUrl}/api/upload-photo`, formData)
+        .subscribe({
+          next: (response) => {
+            this.employeePhotoPath = response.path;  // Get the uploaded file path
+            this.isUploading = false;
+          },
+          error: (error) => {
+            console.error('Error uploading photo:', error);
+            this.isUploading = false;
+            alert('Error uploading photo');
+          }
+        });
+    }
+  }
+
   onSubmit(): void {
-    if (this.createEmployeeForm.invalid) return;
+    if (this.createEmployeeForm.invalid || !this.employeePhotoPath) {
+      return;
+    }
 
     const formValue = this.createEmployeeForm.value;
-
-    // Convert salary string to float
     const input = {
       ...formValue,
-      salary: parseFloat(formValue.salary)
+      salary: parseFloat(formValue.salary),
+      employee_photo: this.employeePhotoPath  // Use the uploaded photo path
     };
 
     const CREATE_EMPLOYEE = gql`

@@ -1,59 +1,94 @@
+Here's a polished version of your Angular frontend `README.md`, customized for deployment on Vercel:
+
+---
+
 # EmployeeManagementFrontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.6.
+Live Demo: [https://employee-management-frontend-4rw5wsgwt-arias-projects-8f8d6d1b.vercel.app](https://employee-management-frontend-4rw5wsgwt-arias-projects-8f8d6d1b.vercel.app)
 
-## Development server
+This is a responsive Employee Management frontend application built using [Angular CLI](https://github.com/angular/angular-cli) version **19.2.6**. It interacts with a backend via GraphQL and supports creating, editing, and managing employee data.
 
-To start a local development server, run:
+---
+
+## 🚀 Deployment
+
+The application is deployed using **Vercel**. Each push to the main branch automatically triggers a new deployment.
+
+> ✅ **Live App**: [View on Vercel](https://employee-management-frontend-4rw5wsgwt-arias-projects-8f8d6d1b.vercel.app)
+
+---
+
+## 🧑‍💻 Development Setup
+
+### Install Dependencies
+
+```bash
+npm install
+```
+
+### Run the Development Server
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Navigate to `http://localhost:4200/` in your browser. The app will auto-reload if you modify source files.
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 🛠️ Code Scaffolding
+
+To generate a new component:
 
 ```bash
 ng generate component component-name
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+For more available schematics:
 
 ```bash
 ng generate --help
 ```
 
-## Building
+---
 
-To build the project run:
+## 📦 Building for Production
+
+To build the app for production:
 
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+The build output will be stored in the `dist/` folder. This build is optimized for performance and deployment.
 
-## Running unit tests
+---
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## ✅ Running Unit Tests
+
+To execute unit tests with [Karma](https://karma-runner.github.io):
 
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
+---
 
-For end-to-end (e2e) testing, run:
+## 🌐 Running End-to-End Tests
+
+To run e2e tests (you can set up Cypress or Protractor separately):
 
 ```bash
 ng e2e
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+---
 
-## Additional Resources
+## 📚 Additional Resources
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- [Angular CLI Overview & Reference](https://angular.dev/tools/cli)
+- [Vercel Docs](https://vercel.com/docs)
+
+---
+
+Let me know if you want a separate section for environment variables or backend API setup too!

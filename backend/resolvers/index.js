@@ -18,19 +18,22 @@ const resolvers = {
       const isMatch = await bcrypt.compare(password, user.password);
       if (!isMatch) throw new Error("Invalid credentials");
 
+      // Return JWT Token
       return jwt.sign({ userId: user.id }, SECRET_KEY, { expiresIn: "2h" });
     },
 
     // Get All Employees - Requires Authentication
     getAllEmployees: async (_, __, { user }) => {
       if (!user) throw new Error("Unauthorized access");
-      return await Employee.find();
+      return await Employee.find(); // Fetch all employees
     },
 
     // Search Employee by ID - Requires Authentication
     searchEmployeeByEid: async (_, { eid }, { user }) => {
       if (!user) throw new Error("Unauthorized access");
-      return await Employee.findById(eid);
+      const employee = await Employee.findById(eid);
+      if (!employee) throw new Error("Employee not found");
+      return employee;
     },
 
     // Search Employee by Designation / Department
@@ -58,24 +61,24 @@ const resolvers = {
     // Add Employee - Requires Authentication
     addEmployee: async (_, { input }, { user }) => {
       if (!user) throw new Error("Unauthorized access");
-
       const newEmployee = new Employee(input);
       await newEmployee.save();
-
       return newEmployee;
     },
 
     // Update Employee - Requires Authentication
     updateEmployee: async (_, { eid, input }, { user }) => {
       if (!user) throw new Error("Unauthorized access");
-      return await Employee.findByIdAndUpdate(eid, input, { new: true });
+      const updatedEmployee = await Employee.findByIdAndUpdate(eid, input, { new: true });
+      if (!updatedEmployee) throw new Error("Employee not found");
+      return updatedEmployee;
     },
 
     // Delete Employee - Requires Authentication
     deleteEmployee: async (_, { eid }, { user }) => {
       if (!user) throw new Error("Unauthorized access");
-
-      await Employee.findByIdAndDelete(eid);
+      const employee = await Employee.findByIdAndDelete(eid);
+      if (!employee) throw new Error("Employee not found");
       return true;
     },
   },
